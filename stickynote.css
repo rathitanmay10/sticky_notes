@@ -1,0 +1,222 @@
+/* CSS Variables for Theming */
+:root {
+  --bg-color: #f0f4f8;
+  --text-color: #333;
+  --panel-bg: #ffffff;
+  --note-bg: #ffffff;
+  --note-shadow: rgba(0, 0, 0, 0.1);
+  --accent-color: #ff4081;
+  --font-family: 'Roboto', sans-serif;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1e1e1e;
+  --text-color: #e0e0e0;
+  --panel-bg: #2c2c2c;
+  --note-bg: #2e2e2e;
+  --note-shadow: rgba(0, 0, 0, 0.5);
+  --accent-color: #ff4081;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Header Styles */
+#headerBar {
+  background: var(--panel-bg);
+  padding: 1rem;
+  box-shadow: 0 2px 4px var(--note-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#headerBar input[type="text"],
+#headerBar select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.dark-mode-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Notification Styles */
+#notification {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: #fffae6;
+  border: 1px solid #ffecb3;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  display: none;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Layout */
+#wrapper {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.control-panel {
+  background: var(--panel-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px var(--note-shadow);
+  margin-bottom: 2rem;
+}
+
+#noteForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+#noteText {
+  width: 100%;
+  max-width: 600px;
+  height: 120px;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  font-size: 1rem;
+}
+
+#categoryInput {
+  width: 100%;
+  max-width: 600px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.color-inputs {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.color-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-group label {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.color-inputs input[type="color"] {
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.color-inputs input[type="color"]:hover {
+  transform: scale(1.1);
+}
+
+#createNote {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#createNote:hover {
+  background-color: darkred;
+}
+
+.notes-area {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+/* Note Styles */
+.note {
+  background: var(--note-bg);
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 1px 1px 5px var(--note-shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+}
+
+.note:hover {
+  transform: translateY(-5px);
+}
+
+.note p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.note .category {
+  font-size: 0.85rem;
+  color: gray;
+  margin-bottom: 0.5rem;
+}
+
+.note .actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.note i {
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.note .fa-pencil:hover {
+  color: green;
+}
+
+.note .fa-trash-can:hover {
+  color: red;
+}

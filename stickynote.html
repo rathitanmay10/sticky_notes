@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sticky Notes App</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="stickynote.css" />
+</head>
+<body>
+  <!-- Header with Search, Sort and Dark Mode Toggle -->
+  <header id="headerBar">
+    <div class="header-inner">
+      <input type="text" id="searchInput" placeholder="Search notes..." aria-label="Search notes" />
+      <select id="sortSelect" aria-label="Sort notes">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+      </select>
+      <div class="dark-mode-wrapper">
+        <label for="darkModeToggle">Dark Mode</label>
+        <input type="checkbox" id="darkModeToggle" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Notification area -->
+  <div id="notification" aria-live="assertive"></div>
+
+  <main id="wrapper">
+    <section class="control-panel" aria-label="Note Creation">
+      <form id="noteForm" novalidate>
+        <textarea id="noteText" placeholder="Enter your note here..." aria-label="Note text" required></textarea>
+        <input type="text" id="categoryInput" placeholder="Category (optional)" aria-label="Note category" />
+        <div class="color-inputs">
+          <div class="color-group">
+            <label for="backgroundColor">Background</label>
+            <input type="color" id="backgroundColor" value="#ffffff" />
+          </div>
+          <div class="color-group">
+            <label for="textColor">Text</label>
+            <input type="color" id="textColor" value="#000000" />
+          </div>
+        </div>
+        <button type="submit" id="createNote">Create Note</button>
+      </form>
+    </section>
+    <section class="notes-area" id="notesContainer" aria-label="Notes List"></section>
+  </main>
+
+  <script src="stickynote.js"></script>
+</body>
+</html>
